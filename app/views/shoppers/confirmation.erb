@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Shopper Checkout Page</title>
+  </head>
+  <body>
+    <h1><%= @shopper.name.capitalize %></h1>
+    <!-- checkboxes for adding items to cart -->
+    <h2>Your cart:</h2>
+    <form action="/confirmation" method="get">
+      <ul>
+        <% @items_hash.each do |item, quantity|
+          if quantity > 0 %>
+            <li> <%= item %>: <%= quantity %> at: ~price~ each </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </form>
+    <button>Automatically empty bank account</button>
+  </body>
+</html>

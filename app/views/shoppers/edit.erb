@@ -2,9 +2,15 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Edit Shopper</title>
   </head>
   <body>
-    <p>Hello world.</p>
+    <h1><%= @shopper.name.capitalize %></h1>
+    <form action="/shoppers/<%= @shopper.id %>" method="post">
+      <input type="hidden" name="_method" value="patch">
+      <label>Name: </label>
+      <input type="text" name="name" value="<%= @shopper.name %>">
+      <input type="submit" name="edit" value="Edit shopper">
+    </form>
   </body>
 </html>

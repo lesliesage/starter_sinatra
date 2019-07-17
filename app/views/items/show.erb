@@ -8,17 +8,14 @@
     <h1>Item Name: <%=@item.name.capitalize%></h1>
     <br>
     <h2>Item Price: $<%=@item.price%></h2>
-
-    
-    <button type="submit" value="Edit this item"><a href="/items/<%=@item.id%>/edit">Edit this page</a></button>
-
-
-
+<!-- link-in-button for editing item -->
+    <button>
+      <a href="/items/<%=@item.id%>/edit">Edit this item</a>
+    </button>
+<!-- button for deleting -->
     <form method="POST" action="/items/<%=@item.id%>">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete this item">
+      <input type="button" name="_method" value="delete">
+      <input type="submit" value="Delete this item">
     </form>
-   
   </body>
 </html>
-

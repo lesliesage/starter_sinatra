@@ -2,9 +2,44 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Shopper Detail Page</title>
   </head>
   <body>
-    <p>Hello world.</p>
+    <h1><%= @shopper.name.capitalize %></h1>
+    <!-- checkboxes for adding items to cart -->
+    <h2>Edit cart:</h2>
+    <form action="/orders" method="post">
+      <input type="hidden" name="_method" value="patch">
+      <ul>
+        <% @items_hash.each do |item, quantity| %>
+          <li>
+            <input type="number" name="quantity" value="<%= quantity %>"><%= item %></input>
+          </li>
+        <% end %>
+      </ul>
+      <!-- Ideally, we'd have some way to submit nested data from our nested form.
+      We haven't learned this yet and will get into it more in rails.
+      A nested hash of orders would be sent to "/orders" and we'd do some logic
+      to update things where the quantity was >1 (the order existed already)
+      or create things where the quanity was 0 (the order didn't exist) -->
+    </form>
+    <!-- <button type="submit" value="Update Cart">Update Cart
+    </button> -->
+    <button>
+      <a href="/shoppers/<%= @shopper.id %>/confirmation">Checkout</a>
+    </button>
+    <br>
+    <br>
+    <br>
+    <!-- link-in-button for editing shopper -->
+    <button>
+      <a href="/shoppers/<%= @shopper.id %>/edit">Edit Shopper</a>
+    </button>
+    <br>
+    <!-- button to delete shopper -->
+    <form action="/shoppers/<%= @shopper.id %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete Shopper">
+    </form>
   </body>
 </html>

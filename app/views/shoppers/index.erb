@@ -2,9 +2,12 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Shopper Index</title>
   </head>
   <body>
-    <p>Hello world.</p>
+    <h1>Shoppers</h1>
+    <% @shoppers.each do |shopper| %>
+      <h3><a href="/shoppers/<%= shopper.id %>"><%= shopper.name %></a></h3>
+    <% end %>
   </body>
 </html>
