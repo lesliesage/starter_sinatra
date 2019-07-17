@@ -2,9 +2,23 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Item Page:</title>
   </head>
   <body>
-    <p>Hello world.</p>
+    <h1>Item Name: <%=@item.name.capitalize%></h1>
+    <br>
+    <h2>Item Price: $<%=@item.price%></h2>
+
+    
+    <button type="submit" value="Edit this item"><a href="/items/<%=@item.id%>/edit">Edit this page</a></button>
+
+
+
+    <form method="POST" action="/items/<%=@item.id%>">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete this item">
+    </form>
+   
   </body>
 </html>
+

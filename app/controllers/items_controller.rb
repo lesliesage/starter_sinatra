@@ -1,3 +1,4 @@
+
 class ItemsController < Sinatra::Base
   set :views, 'app/views/items'
   set :method_override, true
@@ -24,13 +25,13 @@ class ItemsController < Sinatra::Base
 
   get '/items/:id/edit' do
     @item = Item.find(params[:id])
-    erb :show
+    erb :edit
   end
 
-  post '/items/:id' do
+  patch '/items/:id' do
     @item = Item.find(params[:id])
-    @item.update(params[:name], params[:price])
-    redirect "/items/#{@item.id}"
+    @item.update(name: params[:name], price: params[:price])
+    redirect to "/items/#{@item.id}"
   end
 
   delete '/items/:id' do

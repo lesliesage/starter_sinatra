@@ -2,9 +2,21 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Edit an Item </title>
   </head>
   <body>
-    <p>Hello world.</p>
+    <h1>Edit an item:</h1>   
+    <form method="POST" action="/items/<%=@item.id%>">
+    <input type="hidden" name="_method" value="patch">
+    <label>New name of item:   </label>
+    <input type="text" value="<%=@item.name%>" name="name">
+    <br>
+    <br> 
+    <br>
+    <label>New price of item:   </label>
+    <input type="text" value="<%=@item.price%>" name="price">
+    <br>
+    <input type="submit" value="Update item" id="submit">
+    </form>
   </body>
 </html>

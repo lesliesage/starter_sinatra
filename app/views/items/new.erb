@@ -2,9 +2,20 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Items Page</title>
   </head>
   <body>
-    <p>Hello world.</p>
+    <h1>Make a new item:</h1>   
+    <form method="POST" action="/items">
+    <label>Name of item:   </label>
+    <input type="text" name="name">
+    <br>
+    <br>
+    <br>
+    <label>Price of item:   </label>
+    <input type="text" name="price">
+    <br>
+    <input type="submit" value="Create item" id="submit">
+    </form>
   </body>
 </html>

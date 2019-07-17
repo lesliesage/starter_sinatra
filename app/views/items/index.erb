@@ -2,9 +2,12 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Items Index</title>
+    <title>Items Page</title>
   </head>
   <body>
-    <p>Hello world.</p>
+    <h1>Items:</h1>   
+    <% @items.each do |item|%>
+    <h3><a href="/items/<%=item.id%>"><%=item.name%></h3>
+    <%end%>
   </body>
 </html>

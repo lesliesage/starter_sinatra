@@ -24,7 +24,7 @@ class OrdersController < Sinatra::Base
 
   get '/orders/:id/edit' do
     @order = Order.find(params[:id])
-    erb :show
+    redirect '/orders'
   end
 
   post '/orders/:id' do

@@ -23,7 +23,7 @@ class ShoppersController < Sinatra::Base
 
   get '/shoppers/:id/edit' do
     @shopper = Shopper.find(params[:id])
-    erb :show
+    redirect '/shoppers'
   end
 
   post '/shoppers/:id' do
