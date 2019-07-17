@@ -1,6 +1,6 @@
 require 'bundler'
 Bundler.require
-
+require 'rake'
 require_all 'app'
 
 ActiveRecord::Base.establish_connection({
